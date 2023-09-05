@@ -1,0 +1,6 @@
+bin
+obj
+Common/.DS_Store
+packages
+.DS_Store
+.vs/CarFactory/xs

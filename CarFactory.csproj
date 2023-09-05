@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">anycpu</Platform>
+    <ProjectGuid>{C30EC768-F8F5-4B66-843D-B2A66AECA023}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>CarFactory</RootNamespace>
+    <AssemblyName>CarFactory</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|anycpu' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|anycpu' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Numerics.Vectors">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac">
+      <HintPath>packages\Autofac.7.1.0\lib\netstandard2.0\Autofac.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Modules\Body\Models\BodyType.cs" />
+    <Compile Include="Modules\CarFactoryModules.cs" />
+    <Compile Include="CarCreator.cs" />
+    <Compile Include="ICarCreator.cs" />
+    <Compile Include="Modules\Body\BodyModule.cs" />
+    <Compile Include="Modules\Electric\ElectricModule.cs" />
+    <Compile Include="Modules\Engine\EngineModule.cs" />
+    <Compile Include="Modules\Body\Factories\IBodyFactory.cs" />
+    <Compile Include="Modules\Body\Views\BodyView.cs" />
+    <Compile Include="Modules\Body\Commands\BodyCommand.cs" />
+    <Compile Include="Common\IPartCommand.cs" />
+    <Compile Include="Common\IPartModel.cs" />
+    <Compile Include="Modules\Body\Views\IBodyView.cs" />
+    <Compile Include="Modules\Body\Models\SedanModel.cs" />
+    <Compile Include="Modules\Body\Models\SuvModel.cs" />
+    <Compile Include="Modules\Body\Factories\SedanFactory.cs" />
+    <Compile Include="Modules\Body\Factories\CupeFactory.cs" />
+    <Compile Include="Modules\Body\Factories\SuvFactory.cs" />
+    <Compile Include="Modules\Body\Factories\MinivanFactory.cs" />
+    <Compile Include="Modules\Body\Factories\SportsFactory.cs" />
+    <Compile Include="Modules\Body\Models\CupeModel.cs" />
+    <Compile Include="Modules\Body\Models\MinivanModel.cs" />
+    <Compile Include="Modules\Body\Models\SportsModel.cs" />
+    <Compile Include="Common\IUiFactory.cs" />
+    <Compile Include="Common\UiFactory.cs" />
+    <Compile Include="RootModule.cs" />
+    <Compile Include="Common\IView.cs" />
+    <Compile Include="Common\Extensions\AutofacExtensions.cs" />
+    <Compile Include="Common\Extensions\StringExtensions.cs" />
+    <Compile Include="Modules\Electric\Commands\ElectricCommand.cs" />
+    <Compile Include="Modules\Electric\Factories\GoldFactory.cs" />
+    <Compile Include="Modules\Electric\Factories\IElectricFactory.cs" />
+    <Compile Include="Modules\Electric\Factories\BronzeFactory.cs" />
+    <Compile Include="Modules\Electric\Models\ElectricType.cs" />
+    <Compile Include="Modules\Electric\Models\GoldModel.cs" />
+    <Compile Include="Modules\Electric\Models\BronzeModel.cs" />
+    <Compile Include="Modules\Electric\Views\ElectricView.cs" />
+    <Compile Include="Modules\Electric\Views\IElectricView.cs" />
+    <Compile Include="Modules\Electric\Models\TitanModel.cs" />
+    <Compile Include="Modules\Electric\Factories\TitanFactory.cs" />
+    <Compile Include="Modules\Engine\Commands\EngineCommand.cs" />
+    <Compile Include="Modules\Engine\Factories\DieselFactory.cs" />
+    <Compile Include="Modules\Engine\Factories\IEngineFactory.cs" />
+    <Compile Include="Modules\Engine\Factories\ElectroFactory.cs" />
+    <Compile Include="Modules\Engine\Models\GasModel.cs" />
+    <Compile Include="Modules\Engine\Models\EngineType.cs" />
+    <Compile Include="Modules\Engine\Models\DieselModel.cs" />
+    <Compile Include="Modules\Engine\Models\ElectroModel.cs" />
+    <Compile Include="Modules\Engine\Views\EngineView.cs" />
+    <Compile Include="Modules\Engine\Views\IEngineView.cs" />
+    <Compile Include="Modules\Engine\Factories\GasFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modules\" />
+    <Folder Include="Modules\Body\" />
+    <Folder Include="Modules\Engine\" />
+    <Folder Include="Modules\Electric\" />
+    <Folder Include="Modules\Body\Models\" />
+    <Folder Include="Common\" />
+    <Folder Include="Modules\Body\Factories\" />
+    <Folder Include="Modules\Body\Commands\" />
+    <Folder Include="Modules\Body\Views\" />
+    <Folder Include="Modules\Electric\Commands\" />
+    <Folder Include="Modules\Electric\Factories\" />
+    <Folder Include="Modules\Electric\Models\" />
+    <Folder Include="Modules\Electric\Views\" />
+    <Folder Include="Modules\Engine\Commands\" />
+    <Folder Include="Modules\Engine\Factories\" />
+    <Folder Include="Modules\Engine\Models\" />
+    <Folder Include="Modules\Engine\Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
